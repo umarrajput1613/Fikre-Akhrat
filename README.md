@@ -55,5 +55,3 @@ The project focuses on providing a beautiful, peaceful, and spiritually inspirin
 ---
 
 
-├── content/
-└── images/
