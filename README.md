@@ -54,4 +54,4 @@ The project focuses on providing a beautiful, peaceful, and spiritually inspirin
 
 ---
 
-
+> *"A beautifully designed Islamic website dedicated to spreading Ahadith, Quranic reminders, and the message of Akhirah. 'احادیث، قرآنی یاد دہانیوں اور آخرت کے پیغام کو پھیلانے کے لیے ایک خوبصورت ڈیزائن کردہ اسلامی ویب سائٹ۔'"*
