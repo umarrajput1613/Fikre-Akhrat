@@ -54,14 +54,6 @@ The project focuses on providing a beautiful, peaceful, and spiritually inspirin
 
 ---
 
-## 📂 Project Structure
 
-```text
-Fikre-Akhrat/
-│
-├── index.html
-├── style.css
-├── app.js
-├── fonts/
 ├── content/
 └── images/
