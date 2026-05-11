@@ -4,6 +4,7 @@
    RESET
 ========================= */
 
+
 *{
     margin:0;
     padding:0;
@@ -444,13 +445,15 @@ body{
 
 }
 
+/* =========================
+   RESPONSIVE ARABIC TEXT
+========================= */
+
 .arabicText-1{
 
     color:var(--gold);
 
-    font-family: 'Amiri', serif;
-
-    /* direction: rtl; */
+    font-family:'Amiri', serif;
 
     font-size:42px;
 
@@ -460,6 +463,7 @@ body{
 
     margin-bottom:25px;
 
+    word-wrap:break-word;
 
 }
 
@@ -467,20 +471,63 @@ body{
 
     color:var(--gold);
 
-    font-family: 'Amiri', serif;
-
-    /* direction: rtl; */
+    font-family:'Amiri', serif;
 
     font-size:22px;
 
-    /* line-height:2.2; */
-
     text-align:center;
 
-    margin-bottom:0px;
+    margin-bottom:0;
 
-    
+    word-wrap:break-word;
 
+}
+
+/* TABLET */
+
+@media(max-width:768px){
+
+    .arabicText-1{
+
+        font-size:30px;
+
+        line-height:1.9;
+
+        padding:0 10px;
+
+    }
+
+    .arabicText-2{
+
+        font-size:18px;
+
+        line-height:1.8;
+
+        padding:0 10px;
+
+    }
+
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+    .arabicText-1{
+
+        font-size:24px;
+
+        line-height:1.8;
+
+    }
+
+    .arabicText-2{
+
+        font-size:15px;
+
+        line-height:1.7;
+
+    }
 
 }
 
