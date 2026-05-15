@@ -515,6 +515,36 @@ function copyHadith(){
     navigator.clipboard.writeText(text);
     alert("Hadith copied!");
 }
+
+/* =========================
+   IMAGE DOWNLOAD
+========================= */
+
+async function downloadImage(){
+
+    const card = document.querySelector(".slider-card");
+
+    const canvas = await html2canvas(card,{
+
+        scale:3,
+        useCORS:true,
+        backgroundColor:null
+
+    });
+
+    const image = canvas.toDataURL("image/png");
+
+    const link = document.createElement("a");
+
+    link.href = image;
+
+    link.download = "Fikre-Akhrat-Hadith.png";
+
+    link.click();
+
+}
+
+
 /* =========================
    STARS
 ========================= */
