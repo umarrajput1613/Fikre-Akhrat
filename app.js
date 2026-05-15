@@ -420,6 +420,101 @@ setInterval(()=>{
 
 renderHadith();
 
+
+
+/* =========================
+   PDF DOWNLOAD
+========================= */
+
+async function downloadPDF(){
+
+    const { jsPDF } = window.jspdf;
+
+    const card = document.querySelector(".slider-card");
+
+    const canvas = await html2canvas(card,{
+
+        scale:3
+
+    });
+
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF({
+
+        orientation:"portrait",
+
+        unit:"px",
+
+        format:[canvas.width,canvas.height]
+
+    });
+
+    pdf.addImage(
+        imgData,
+        "PNG",
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    pdf.save("fikre-akhirat-hadith.pdf");
+
+}
+
+/* =========================
+   FULL CARD PDF DOWNLOAD
+========================= */
+
+async function downloadPDF(){
+
+    const card = document.querySelector(".slider-card");
+
+    const canvas = await html2canvas(card,{
+
+        scale:3,
+        useCORS:true,
+        scrollY:0
+
+    });
+
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jspdf.jsPDF({
+
+        orientation:"portrait",
+        unit:"mm",
+        format:"a4"
+
+    });
+
+    const pdfWidth = 210;
+
+    const pdfHeight =
+    (canvas.height * pdfWidth) / canvas.width;
+
+    pdf.addImage(
+        imgData,
+        "PNG",
+        0,
+        0,
+        pdfWidth,
+        pdfHeight
+    );
+
+    pdf.save("Fikre-Akhrat-Hadith.pdf");
+
+}
+function copyHadith(){
+    const text =
+    hadiths[currentHadith].arabic + "\n\n" +
+    hadiths[currentHadith].urdu + "\n\n" +
+    hadiths[currentHadith].ref;
+
+    navigator.clipboard.writeText(text);
+    alert("Hadith copied!");
+}
 /* =========================
    STARS
 ========================= */
