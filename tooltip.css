@@ -1,4 +1,4 @@
- /* 1. Main container jo button ko wrap karega */
+ /* 
         .tooltip-container {
             position: relative;
             display: inline-block;
@@ -6,7 +6,7 @@
             margin: 10px;
         }
 
-        /* 2. Tooltip ka text box (jo shuru mein chupa hoga) */
+      
         .tooltip-text {
             visibility: hidden;
             width: 160px;
@@ -17,23 +17,23 @@
             padding: 2px;
             font-size: 20px;
             font-family: 'Courier New', Courier, monospace;
-            /* Position set karne ke liye */
+            
             position: absolute;
             z-index: 1;
-            bottom: 125%; /* Button ke upar dikhane ke liye */
+            bottom: 125%;
             left: 50%;
             transform: translateX(-50%);
             
-            /* Fade-in animation effect */
+            
             opacity: 0;
             transition: opacity 0.3s;
         }
 
-        /* 3. Tooltip ke neeche chota sa arrow/triangle */
+       
         .tooltip-text::after {
             content: "";
             position: absolute;
-            top: 100%; /* Box ke bilkul neeche */
+            top: 100%; 
             left: 50%;
             margin-left: -5px;
             border-width: 5px;
@@ -41,8 +41,9 @@
             border-color: #333 transparent transparent transparent;
         }
 
-        /* 4. Jab cursor button par aaye, toh tooltip dikhao */
+      
         .tooltip-container:hover .tooltip-text {
             visibility: visible;
             opacity: 1;
         }
+*/
