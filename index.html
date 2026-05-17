@@ -204,7 +204,49 @@
 </footer>
 
 <script src="app.js"></script>
+<!-- SHARE MODAL -->
 
+<div class="share-modal" id="shareModal">
+
+    <div class="share-box">
+
+        <h2>شیئر کریں</h2>
+
+        <div class="share-grid">
+
+            <a id="whatsappShare" target="_blank">
+                WhatsApp
+            </a>
+
+            <a id="facebookShare" target="_blank">
+                Facebook
+            </a>
+
+            <a id="telegramShare" target="_blank">
+                Telegram
+            </a>
+
+            <a id="twitterShare" target="_blank">
+                Twitter X
+            </a>
+
+            <button onclick="copyLink()">
+                Copy Link
+            </button>
+
+            <button onclick="nativeShare()">
+                More
+            </button>
+
+        </div>
+
+        <button class="close-share" onclick="closeShareModal()">
+            ✕
+        </button>
+
+    </div>
+
+</div>
 
 </body>
 </html>
