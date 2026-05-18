@@ -330,6 +330,10 @@ urdu:`سب اعمال کا اعتبار خاتمے پر ہے۔`
 
 ];
 
+
+  
+
+
 /* =========================
    INDEX
 ========================= */
@@ -337,16 +341,74 @@ urdu:`سب اعمال کا اعتبار خاتمے پر ہے۔`
 let currentHadith = 0;
 
 /* =========================
+   LOAD HADITH FROM URL
+========================= */
+
+const params =
+new URLSearchParams(window.location.search);
+
+const hadithParam =
+params.get("hadith");
+
+if(hadithParam !== null){
+
+    currentHadith =
+    parseInt(hadithParam);
+
+    if(
+        isNaN(currentHadith) ||
+        currentHadith < 0 ||
+        currentHadith >= hadiths.length
+    ){
+
+        currentHadith = 0;
+
+    }
+
+}
+
+/* =========================
    ELEMENTS
 ========================= */
 
-const arabicText = document.getElementById("arabicText");
+const arabicText =
+document.getElementById("arabicText");
 
-const urduText = document.getElementById("urduText");
+const urduText =
+document.getElementById("urduText");
 
-const referenceText = document.getElementById("referenceText");
+const referenceText =
+document.getElementById("referenceText");
 
-const hadithCount = document.getElementById("hadithCount");
+const hadithCount =
+document.getElementById("hadithCount");
+
+/* =========================
+   UPDATE URL
+========================= */
+
+function updateURL(){
+
+    const newURL =
+    `${window.location.pathname}?hadith=${currentHadith}`;
+
+    window.history.replaceState(
+        null,
+        null,
+        newURL
+    );
+
+}
+
+/* =========================
+   GET CURRENT URL
+========================= */
+
+function getCurrentURL(){
+
+    return window.location.href;
+
+}
 
 /* =========================
    RENDER FUNCTION
@@ -365,6 +427,8 @@ function renderHadith(){
 
     hadithCount.innerHTML =
     `حدیث ${currentHadith + 1} / ${hadiths.length}`;
+
+    updateURL();
 
 }
 
@@ -396,7 +460,8 @@ function prevHadith(){
 
     if(currentHadith < 0){
 
-        currentHadith = hadiths.length - 1;
+        currentHadith =
+        hadiths.length - 1;
 
     }
 
@@ -420,68 +485,29 @@ setInterval(()=>{
 
 renderHadith();
 
-
-
 /* =========================
    PDF DOWNLOAD
 ========================= */
 
 async function downloadPDF(){
 
-    const { jsPDF } = window.jspdf;
+    const card =
+    document.querySelector(".slider-card");
 
-    const card = document.querySelector(".slider-card");
+    const canvas =
+    await html2canvas(card,{
 
-    const canvas = await html2canvas(card,{
-
-        scale:3
-
-    });
-
-    const imgData = canvas.toDataURL("image/png");
-
-    const pdf = new jsPDF({
-
-        orientation:"portrait",
-
-        unit:"px",
-
-        format:[canvas.width,canvas.height]
-
-    });
-
-    pdf.addImage(
-        imgData,
-        "PNG",
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-    pdf.save("fikre-akhirat-hadith.pdf");
-
-}
-
-/* =========================
-   FULL CARD PDF DOWNLOAD
-========================= */
-
-async function downloadPDF(){
-
-    const card = document.querySelector(".slider-card");
-
-    const canvas = await html2canvas(card,{
-
-        scale:3,
+        scale:4,
         useCORS:true,
-        scrollY:0
+        backgroundColor:"#120d09"
 
     });
 
-    const imgData = canvas.toDataURL("image/png");
+    const imgData =
+    canvas.toDataURL("image/png");
 
-    const pdf = new jspdf.jsPDF({
+    const pdf =
+    new jspdf.jsPDF({
 
         orientation:"portrait",
         unit:"mm",
@@ -492,7 +518,8 @@ async function downloadPDF(){
     const pdfWidth = 210;
 
     const pdfHeight =
-    (canvas.height * pdfWidth) / canvas.width;
+    (canvas.height * pdfWidth)
+    / canvas.width;
 
     pdf.addImage(
         imgData,
@@ -503,17 +530,43 @@ async function downloadPDF(){
         pdfHeight
     );
 
-    pdf.save("Fikre-Akhrat-Hadith.pdf");
+    pdf.save(
+        `Hadith-${currentHadith + 1}.pdf`
+    );
 
 }
+
+/* =========================
+   COPY HADITH
+========================= */
+
 function copyHadith(){
+
+    const shareURL =
+    getCurrentURL();
+
     const text =
-    hadiths[currentHadith].arabic + "\n\n" +
-    hadiths[currentHadith].urdu + "\n\n" +
-    hadiths[currentHadith].ref;
+
+    "چہل احادیث مبارکہ\n\n" +
+
+    hadiths[currentHadith].arabic +
+
+    "\n\n" +
+
+    hadiths[currentHadith].urdu +
+
+    "\n\n" +
+
+    hadiths[currentHadith].ref +
+
+    "\n\n" +
+
+    shareURL;
 
     navigator.clipboard.writeText(text);
-    alert("Hadith copied!");
+
+    alert("حدیث کاپی ہوگئی");
+
 }
 
 /* =========================
@@ -522,40 +575,166 @@ function copyHadith(){
 
 async function downloadImage(){
 
-    const card = document.querySelector(".slider-card");
+    const card =
+    document.querySelector(".slider-card");
 
-    const canvas = await html2canvas(card,{
+    const canvas =
+    await html2canvas(card,{
 
-        scale:3,
+        scale:4,
         useCORS:true,
-        backgroundColor:null
+        backgroundColor:"#120d09"
 
     });
 
-    const image = canvas.toDataURL("image/png");
+    const image =
+    canvas.toDataURL("image/png");
 
-    const link = document.createElement("a");
+    const link =
+    document.createElement("a");
 
     link.href = image;
 
-    link.download = "Fikre-Akhrat-Hadith.png";
+    link.download =
+    `Hadith-${currentHadith + 1}.png`;
 
     link.click();
 
 }
 
+/* =========================
+   SHARE MODAL
+========================= */
+
+function openShareModal(){
+
+    const modal =
+    document.getElementById(
+        "shareModal"
+    );
+
+    modal.classList.add("active");
+
+    const text =
+    hadiths[currentHadith].urdu;
+
+    const shareURL =
+    getCurrentURL();
+
+    /* WHATSAPP */
+
+    document.getElementById(
+        "whatsappShare"
+    ).href =
+
+    `https://wa.me/?text=${
+        encodeURIComponent(
+            text + "\n\n" + shareURL
+        )
+    }`;
+
+    /* FACEBOOK */
+
+    document.getElementById(
+        "facebookShare"
+    ).href =
+
+    `https://www.facebook.com/sharer/sharer.php?u=${
+        encodeURIComponent(shareURL)
+    }`;
+
+    /* TELEGRAM */
+
+    document.getElementById(
+        "telegramShare"
+    ).href =
+
+    `https://t.me/share/url?url=${
+        encodeURIComponent(shareURL)
+    }&text=${
+        encodeURIComponent(text)
+    }`;
+
+    /* TWITTER */
+
+    document.getElementById(
+        "twitterShare"
+    ).href =
+
+    `https://twitter.com/intent/tweet?text=${
+        encodeURIComponent(text)
+    }&url=${
+        encodeURIComponent(shareURL)
+    }`;
+
+}
+
+/* =========================
+   CLOSE SHARE MODAL
+========================= */
+
+function closeShareModal(){
+
+    document
+    .getElementById("shareModal")
+    .classList.remove("active");
+
+}
+
+/* =========================
+   COPY LINK
+========================= */
+
+function copyLink(){
+
+    navigator.clipboard.writeText(
+        window.location.href
+    );
+
+    alert("Link Copied!");
+
+}
+
+/* =========================
+   NATIVE SHARE
+========================= */
+
+function nativeShare(){
+
+    if(navigator.share){
+
+        navigator.share({
+
+            title:
+            "فکرِ آخرت | چہل احادیث",
+
+            text:
+            hadiths[currentHadith].urdu,
+
+            url:
+            window.location.href
+
+        });
+
+    }
+
+}
 
 /* =========================
    STARS
 ========================= */
 
-const canvas = document.getElementById("stars");
+const canvas =
+document.getElementById("stars");
 
-const ctx = canvas.getContext("2d");
+const ctx =
+canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
+canvas.width =
+window.innerWidth;
 
-canvas.height = window.innerHeight;
+canvas.height =
+window.innerHeight;
 
 let stars = [];
 
@@ -563,13 +742,19 @@ for(let i=0;i<180;i++){
 
     stars.push({
 
-        x:Math.random()*canvas.width,
+        x:
+        Math.random() *
+        canvas.width,
 
-        y:Math.random()*canvas.height,
+        y:
+        Math.random() *
+        canvas.height,
 
-        r:Math.random()*2,
+        r:
+        Math.random() * 2,
 
-        s:Math.random()*0.5
+        s:
+        Math.random() * 0.5
 
     });
 
@@ -577,15 +762,26 @@ for(let i=0;i<180;i++){
 
 function animate(){
 
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
 
-    ctx.fillStyle="white";
+    ctx.fillStyle = "white";
 
     stars.forEach(star=>{
 
         ctx.beginPath();
 
-        ctx.arc(star.x,star.y,star.r,0,Math.PI*2);
+        ctx.arc(
+            star.x,
+            star.y,
+            star.r,
+            0,
+            Math.PI * 2
+        );
 
         ctx.fill();
 
@@ -595,23 +791,31 @@ function animate(){
 
             star.y = 0;
 
-            star.x = Math.random()*canvas.width;
+            star.x =
+            Math.random() *
+            canvas.width;
 
         }
 
     });
 
-    requestAnimationFrame(animate);
+    requestAnimationFrame(
+        animate
+    );
 
 }
 
 animate();
 
-window.addEventListener("resize",()=>{
+window.addEventListener(
+    "resize",
+    ()=>{
 
-    canvas.width = window.innerWidth;
+        canvas.width =
+        window.innerWidth;
 
-    canvas.height = window.innerHeight;
+        canvas.height =
+        window.innerHeight;
 
-});
-
+    }
+);
