@@ -583,7 +583,7 @@ async function downloadImage(){
 
         scale:4,
         useCORS:true,
-        backgroundColor:"#120d09"
+        backgroundColor:"#ffffff00"
 
     });
 
