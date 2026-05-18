@@ -679,3 +679,364 @@ body{
 
 }
 
+/* =========================
+   SHARE MODAL
+========================= */
+
+.share-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+
+    height:100vh;
+
+    background:rgba(0,0,0,.78);
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    z-index:999999;
+
+    overflow-y:auto;
+
+}
+
+/* ACTIVE */
+
+.share-modal.active{
+
+    display:flex;
+
+}
+
+/* =========================
+   SHARE BOX
+========================= */
+
+.share-box{
+
+    width:100%;
+
+    max-width:520px;
+
+    background:linear-gradient(145deg,#1d1712,#120d09);
+
+    border:1px solid var(--border);
+
+    border-radius:32px;
+
+    padding:35px 28px;
+
+    position:relative;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.65);
+
+    animation:sharePopup .35s ease;
+
+}
+
+/* POPUP ANIMATION */
+
+@keyframes sharePopup{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px) scale(.9);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+    }
+
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.share-box h2{
+
+    text-align:center;
+
+    color:var(--gold);
+
+    margin-bottom:28px;
+
+    font-size:38px;
+
+    line-height:1.4;
+
+}
+
+/* =========================
+   GRID
+========================= */
+
+.share-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:16px;
+
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.share-grid a,
+.share-grid button{
+
+    border:none;
+
+    outline:none;
+
+    padding:18px 14px;
+
+    border-radius:20px;
+
+    background:linear-gradient(145deg,#d7b57a,#b8904f);
+
+    color:#000;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    font-family:Urdu;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:70px;
+
+    word-break:break-word;
+
+}
+
+.share-grid a:hover,
+.share-grid button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(215,181,122,.25);
+
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.close-share{
+
+    position:absolute;
+
+    top:14px;
+    left:14px;
+
+    width:48px;
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ff4d4d;
+
+    color:#fff;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.3s;
+
+}
+
+.close-share:hover{
+
+    transform:rotate(90deg) scale(1.05);
+
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:768px){
+
+    .share-box{
+
+        max-width:95%;
+
+        padding:30px 20px;
+
+        border-radius:26px;
+
+    }
+
+    .share-box h2{
+
+        font-size:30px;
+
+        margin-bottom:22px;
+
+    }
+
+    .share-grid{
+
+        gap:14px;
+
+    }
+
+    .share-grid a,
+    .share-grid button{
+
+        font-size:16px;
+
+        min-height:65px;
+
+        padding:16px 12px;
+
+        border-radius:16px;
+
+    }
+
+    .close-share{
+
+        width:42px;
+        height:42px;
+
+        font-size:20px;
+
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:480px){
+
+    .share-modal{
+
+        padding:14px;
+
+    }
+
+    .share-box{
+
+        width:100%;
+
+        padding:26px 16px;
+
+        border-radius:22px;
+
+    }
+
+    .share-box h2{
+
+        font-size:24px;
+
+        margin-bottom:18px;
+
+    }
+
+    .share-grid{
+
+        grid-template-columns:1fr;
+
+        gap:12px;
+
+    }
+
+    .share-grid a,
+    .share-grid button{
+
+        width:100%;
+
+        min-height:60px;
+
+        font-size:15px;
+
+        border-radius:14px;
+
+        padding:14px 10px;
+
+    }
+
+    .close-share{
+
+        top:10px;
+        left:10px;
+
+        width:38px;
+        height:38px;
+
+        font-size:18px;
+
+    }
+
+}
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+
+@media(max-width:340px){
+
+    .share-box h2{
+
+        font-size:20px;
+
+    }
+
+    .share-grid a,
+    .share-grid button{
+
+        font-size:14px;
+
+        min-height:56px;
+
+    }
+
+}
