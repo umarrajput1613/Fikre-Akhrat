@@ -176,9 +176,6 @@ body{
 ========================= */
 
 .hero{
-
-    background:linear-gradient(145deg,#1f1711,#120d09);
-
     border:1px solid var(--border);
 
     border-radius:35px;
@@ -191,6 +188,7 @@ body{
 
     box-shadow:0 15px 40px rgba(0,0,0,.4);
 
+    background:linear-gradient(145deg,#1f1711,#120d09);
 }
 
 /* PATTERN */
@@ -420,8 +418,10 @@ body{
 
     margin:auto;
 
-    background:linear-gradient(145deg,#1d1712,#120d09);
-
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+    
+    background:linear-gradient(145deg,#1f1711,#120d09);
+    
     border:1px solid var(--border);
 
     border-radius:35px;
@@ -432,7 +432,7 @@ body{
 
     overflow:hidden;
 
-    box-shadow:0 15px 45px rgba(0,0,0,.45);
+    
 
     width:100%;
 
@@ -453,7 +453,7 @@ body{
 
     background:url("arabesque.png");
 
-    opacity: 0.5;
+    opacity: 1;
     
 }
 
