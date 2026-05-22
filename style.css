@@ -305,18 +305,41 @@ body{
 
 .slider-top{
 
+    width:100%;
+
     display:flex;
 
     justify-content:center;
 
     align-items:center;
 
-    gap:20px;
+    flex-wrap:wrap;
 
-    margin-bottom:30px;
+    gap:14px;
+
+    margin-top:25px;
+
+    padding:16px;
+
+    border-radius:30px;
+
+    /* background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.02)
+    ); */
+
+    /* backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px); */
+
+    /* border:1px solid rgba(255,255,255,.08); */
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.35);
 
 }
-
 .slider-title{
 
     color:var(--gold);
@@ -331,32 +354,47 @@ body{
 
 .nav-btn{
 
-    width:60px;
+     width:60px;
 
     height:60px;
 
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
     border:none;
 
-    border-radius:50%;
-
-    background:linear-gradient(145deg,#d7b57a,#b8904f);
-
-    color:#000;
-
-    font-size:28px;
+    outline:none;
 
     cursor:pointer;
 
-    transition:.3s;
+    border-radius:50%;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.4);
+    background:
+    linear-gradient(
+        145deg,
+        #d7b57a,
+        #b8904f
+    );
 
-    
-  -webkit-user-select: none; 
-  -ms-user-select: none;     
-  user-select: none;         
+    color:#000;
 
+    transition:.3s ease;
 
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.25);
+
+    flex-shrink:0;
+
+    -webkit-user-select:none;
+
+    -ms-user-select:none;
+
+    user-select:none;
+
+    font-size: 25px;
 
 }
 
@@ -365,6 +403,14 @@ body{
     transform:scale(1.1);
 
 }
+
+/* .nav-btn svg{
+
+    width:32px;
+
+    height:32px;
+
+} */
 
 /* CARD */
 
@@ -519,6 +565,23 @@ body{
 
     }
 
+    .logo{
+
+        font-size:20px;
+
+    }
+
+    .nav-btn svg{
+
+    width:30px;
+
+    height:30px;
+
+}
+.nav-btn svg text {
+    font-size: 16px;
+}
+
 }
 
 /* MOBILE */
@@ -533,6 +596,9 @@ body{
 
     }
 
+    .header-btn {
+        display: none;
+    }
     .arabicText-2{
 
         font-size:15px;
@@ -540,6 +606,20 @@ body{
         line-height:1.7;
 
     }
+
+    .nav-btn svg{
+
+    width:35px;
+
+    height:32px;
+
+}
+
+.nav-btn svg text {
+    font-size: 16px;
+    x: 50%;
+    y: 50%;
+}
 
 }
 
