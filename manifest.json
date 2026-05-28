@@ -8,17 +8,17 @@
   "short_name": "Fikre-Akhrat",
   "start_url": "/Fikre-Akhrat/",
   "theme_color": "#d7b57a",
-  "icons": [
+ "icons": [
     {
-      "src": "https://umarrajput1613.github.io/Fikre-Akhrat/fav-icon.png",
+      "src": "icon-512.png",
       "type": "image/png",
-      "sizes": "171x169",
-      "isSquare": false,
+      "sizes": "512x512",
+      "isSquare": true,
       "isPng": true,
       "isWebp": false,
       "isJpg": false,
-      "width": 171,
-      "is512x512": false,
+      "width": 512,
+      "is512x512": true,
       "is256x256": false,
       "is192x192": false
     }
@@ -34,8 +34,10 @@
     "window-controls-overlay"
   ],
   "categories": [
-    "books",
+    "Islamic",
     "education",
-    "lifestyle"
+    "lifestyle",
+    "Religion",
+    "books"
   ]
 }
