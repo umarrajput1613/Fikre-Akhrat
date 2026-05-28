@@ -1,0 +1,41 @@
+{
+  "background_color": "#0f0b08",
+  "dir": "rtl",
+  "display": "standalone",
+  "name": "Fikre-Akhrat",
+  "orientation": "portrait",
+  "scope": "/Fikre-Akhrat/",
+  "short_name": "Fikre-Akhrat",
+  "start_url": "/Fikre-Akhrat/",
+  "theme_color": "#d7b57a",
+  "icons": [
+    {
+      "src": "https://umarrajput1613.github.io/Fikre-Akhrat/fav-icon.png",
+      "type": "image/png",
+      "sizes": "171x169",
+      "isSquare": false,
+      "isPng": true,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 171,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    }
+  ],
+  "id": "com.fikreakhrat.app",
+  "description": "Islamic Hadith App with 40 Authentic Ahadith in Arabic and Urdu Translation.",
+  "lang": "ur",
+  "display_override": [
+    "standalone",
+    "browser",
+    "fullscreen",
+    "minimal-ui",
+    "window-controls-overlay"
+  ],
+  "categories": [
+    "books",
+    "education",
+    "lifestyle"
+  ]
+}
