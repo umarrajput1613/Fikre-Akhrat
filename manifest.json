@@ -40,4 +40,25 @@
     "Religion",
     "books"
   ]
+  ,
+  "screenshots": [
+    {
+      "src": "Screenshot_20260528-155857.jpg",
+      "sizes": "720x1600",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "Screenshot_20260528-155912.jpg",
+      "sizes": "720x1600",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "Screenshot_20260528-160843.jpg",
+      "sizes": "720x1600",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
 }
