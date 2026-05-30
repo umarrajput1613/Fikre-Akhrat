@@ -51,7 +51,7 @@ The project focuses on providing a beautiful, peaceful, and spiritually inspirin
 - CSS3
 - JavaScript
 - Custom Islamic Fonts
-
+- https://www.facebook.com/100071055002071/posts/1015875660790925/?app=fbl
 ---
 
 > *"A beautifully designed Islamic website dedicated to spreading Ahadith, Quranic reminders, and the message of Akhirah. 'احادیث، قرآنی یاد دہانیوں اور آخرت کے پیغام کو پھیلانے کے لیے ایک خوبصورت ڈیزائن کردہ اسلامی ویب سائٹ۔'"*
